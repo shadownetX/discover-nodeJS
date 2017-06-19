@@ -1,0 +1,1 @@
+var version="0";console.log(version);var prenom="TOTO";console.log(prenom);
