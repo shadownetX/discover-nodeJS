@@ -16,15 +16,9 @@ app.set('view engine','pug');
 
 console.log(logger.version);
 
-app.get('/api',(req,res)=>{
-    res.json({message: 'Hi everybody'});
-});
+app.get('/api');
 
-app.get('/', function (req, res) {
-    console.log('Homepage');
-
-    // Passer des paramètres
-    res.render('home',{title:"Pug Life"});
-});
+// On va chercher les routes dispos
+require(path.join(__dirname,'routes'));
 
 app.listen(8000);
