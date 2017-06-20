@@ -16,8 +16,6 @@ app.set('view engine','pug');
 
 console.log(logger.version);
 
-app.get('/api');
-
 // On va chercher les routes dispos
 require(path.join(__dirname,'routes'));
 
