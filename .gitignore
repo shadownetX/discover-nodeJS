@@ -1,0 +1,6 @@
+basics/node_modules
+basics/package-lock.json
+task-gulp/node_modules
+task-gulp/package-lock.json
+task-gulp/package.json
+.vscode
