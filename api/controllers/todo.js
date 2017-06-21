@@ -14,7 +14,7 @@ function all(req, res) {
             res.status(200);
             res.json(tasks);
         },
-        function (err){
+        function (err) {
             res.json(err);
         }
     );
@@ -22,10 +22,21 @@ function all(req, res) {
 }
 
 function find(req, res) {
+    todo.find(req.params.id).then(
+        function (task) {
+            if (null === task) {
+                res.json({ message: 'Task not found' });
+            }
+            res.json(task);
+        },
+        function (err) {
+            res.status(500);
+            res.json(err);
+        }
+    );
 }
 
 function create(req, res) {
-    
     todo.create(req.body).then(
         function () {
             res.status(201);
@@ -33,12 +44,30 @@ function create(req, res) {
         },
         function (err) {
             res.status(500);
+            res.json(err);
         }
     );
 }
 
 function update(req, res) {
+    todo.update(req.params.id, req.body).then(
+        function () {
+            res.json({ message: 'Task modified' });
+        }, function (err) {
+            res.status(500);
+            res.json(err);
+        }
+    );
 }
 
 function remove(req, res) {
+    todo.remove(req.params.id).then(
+        function () {
+            res.json({ message: "Task removed" });
+        },
+        function (err) {
+            res.status(500);
+            res.json(err);
+        }
+    );
 }

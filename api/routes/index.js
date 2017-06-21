@@ -2,7 +2,7 @@
 
 const controllers = require('../controllers');
 
-router.get('/hello',controllers.hello);
+router.get('/hello', controllers.hello);
 
 /**
  * Chargement des routes spécialisées API
