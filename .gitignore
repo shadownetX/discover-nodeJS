@@ -7,3 +7,7 @@ task-gulp/package.json
 express/node_modules
 express/package.json
 express/package-lock.json
+api/node_modules
+api/package.json
+api/package-lock.json
+
