@@ -6,6 +6,7 @@ exports.all = all;
 exports.find = find;
 exports.create = create;
 exports.update = update;
+exports.findByStatus = findByStatus;
 exports.remove = remove;
 
 function all(req, res) {
@@ -64,6 +65,21 @@ function remove(req, res) {
     todo.remove(req.params.id).then(
         function () {
             res.json({ message: "Task removed" });
+        },
+        function (err) {
+            res.status(500);
+            res.json(err);
+        }
+    );
+}
+
+function findByStatus(req, res) {
+    todo.findByStatus(req.params.status).then(
+        function (tasks) {
+            if (null === tasks) {
+                res.json({ message: 'Tasks not found' });
+            }
+            res.json(tasks);
         },
         function (err) {
             res.status(500);

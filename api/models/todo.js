@@ -8,6 +8,7 @@ exports.create = create;
 exports.find = find;
 exports.update = update;
 exports.remove = remove;
+exports.findByStatus = findByStatus;
 
 function all() {
     return Task.find({}, { "__v": 0 }).sort({ date: -1 }).exec();
@@ -23,6 +24,10 @@ function create(data) {
     task.description = data.description;
     task.created = new Date();
     return task.save();
+}
+
+function findByStatus(status) {
+    return Task.find({status: {$eq: status}}, { "__v":0}).exec();
 }
 
 function update(id, data) {
