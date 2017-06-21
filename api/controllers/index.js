@@ -1,4 +1,4 @@
-//controllers/index.js
+// controllers/index.js
 
 exports.hello = hello;
 
