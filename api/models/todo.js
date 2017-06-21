@@ -10,11 +10,11 @@ exports.update = update;
 exports.remove = remove;
 
 function all() {
-    return Task.find().sort({ date: -1 }).exec();
+    return Task.find({}, { "__v": 0 }).sort({ date: -1 }).exec();
 }
 
 function find(id) {
-    return Task.findById(id);
+    return Task.findById(id, { "__v": 0 });
 }
 
 function create(data) {
@@ -31,7 +31,7 @@ function update(id, data) {
     promise.then(
         function (task) {
             //success
-            if(task===null){
+            if (task === null) {
                 return null;
             }
             task.title = data.title;
@@ -48,6 +48,6 @@ function update(id, data) {
     return promise;
 }
 
-function remove(id){
+function remove(id) {
     return Task.findByIdAndRemove(id);
 }
