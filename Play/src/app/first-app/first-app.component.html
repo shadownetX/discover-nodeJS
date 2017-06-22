@@ -1,0 +1,18 @@
+<p>
+  first-app works!
+</p>
+
+<input type="text" (input)="onData($event)">
+
+<h3>TEST : {{ name }}</h3>
+
+<input type="text" [(ngModel)]="name">
+
+<hr>
+
+<input [(ngModel)]="movie.title">
+<button class="btn btn-info" (click)="addMovie()">Add</button>
+
+<ul>
+  <li *ngFor="let movie of movies; let i=index" (click)="onUpdate(movie)"> {{ movie.title }} <button type="button" class="btn btn-xs btn-danger" (click)="delMovie(i)">Del</button></li>
+</ul>
