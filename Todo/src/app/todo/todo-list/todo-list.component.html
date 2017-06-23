@@ -1,5 +1,5 @@
 <div class="col-md-6">
-  <div class="panel panel-default">
+  <div *ngIf="tasks.length > 0" class="panel panel-default">
     <div class="panel-heading">
       <span>TASKS</span>
       <a (click)="showHide=!showHide" class="btn btn-xs btn-default pull-right">
@@ -10,8 +10,8 @@
 
     <div class="panel-body">
       <ul class="list-group">
-        <a *ngFor="let task of tasks" class="list-group-item" style="cursor:pointer">
-          <h4>{{ task.title }} <span class="label label-default pull-right">{{ task.status }}</span></h4>
+        <a *ngFor="let task of tasks" class="list-group-item" style="cursor:pointer" (click)="selectedTask=task">
+          <h4>{{ task.title }} <span class="label label-{{ getStatusClass(task.status) }} pull-right">{{ task.status }}</span></h4>
           <small [ngClass]="{'hidden': !showHide}">{{ task.description }}</small>
         </a>
       </ul>
@@ -20,6 +20,10 @@
     <div class="panel-footer">
       <strong>{{ tasks.length }} tasks</strong>
     </div>
-    
+
   </div>
+</div>
+
+<div class="col-md-6">
+  <app-todo-item [task]="selectedTask"></app-todo-item>
 </div>

@@ -10,7 +10,8 @@ import { TodoService } from '../todo.service';
   providers: [TodoService]
 })
 export class TodoListComponent implements OnInit {
-  tasks: Task[];
+  tasks: Task[] = [];
+  selectedTask: Task;
 
   constructor(private todoService: TodoService) { }
 
@@ -18,8 +19,21 @@ export class TodoListComponent implements OnInit {
     this.getTasks();
   }
 
-  getTasks(): void{
+  getTasks(): void {
     this.todoService.getTasks().then(tasks => this.tasks = tasks);
+  }
+
+  getStatusClass(status: Status): string {
+    switch (status) {
+      case 'pending':
+        return 'danger';
+      case 'ongoing':
+        return 'warning';
+      case 'completed':
+        return 'success';
+      default:
+        return 'default';
+    }
   }
 
 }

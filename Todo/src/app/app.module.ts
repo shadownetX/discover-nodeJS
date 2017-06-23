@@ -23,7 +23,8 @@ import { TodoItemComponent } from './todo/todo-list/todo-item/todo-item.componen
   imports: [
     BrowserModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
