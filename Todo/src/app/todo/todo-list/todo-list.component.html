@@ -1,0 +1,25 @@
+<div class="col-md-6">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <span>TASKS</span>
+      <a (click)="showHide=!showHide" class="btn btn-xs btn-default pull-right">
+        {{ showHide ? '-' : '+' }}
+      </a>
+    </div>
+
+
+    <div class="panel-body">
+      <ul class="list-group">
+        <a *ngFor="let task of tasks" class="list-group-item" style="cursor:pointer">
+          <h4>{{ task.title }} <span class="label label-default pull-right">{{ task.status }}</span></h4>
+          <small [ngClass]="{'hidden': !showHide}">{{ task.description }}</small>
+        </a>
+      </ul>
+    </div>
+
+    <div class="panel-footer">
+      <strong>{{ tasks.length }} tasks</strong>
+    </div>
+    
+  </div>
+</div>
