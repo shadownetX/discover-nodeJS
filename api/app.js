@@ -11,6 +11,13 @@ moment = require('moment');
 
 app = express();
 
+app.use((req,res,next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods','POST,GET,OPTIONS,DELETE,PUT');
+    res.header('Access-Control-Allow-Headers','Origin, X-Requested-With, COntent-Type, Accept')
+    next();
+});
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
