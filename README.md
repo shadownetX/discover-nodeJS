@@ -131,4 +131,29 @@ nodemon gulpfile.js
 
 ## /Play
 
+Just few basics bindings var.
 
+## /Todo
+
+Instal Angular :
+
+```sh
+ng new [name_project]
+cd [name_project]
+```
+
+Instal Bootstrap
+
+```sh
+npm install --save bootstrap
+```
+
+Veillez à inclure les sources dans .angular-cli.json (styles)
+
+Génération de composants
+
+```sh
+ng generate component [name] --spec false
+#or
+ng g c [name] --spec false
+```
